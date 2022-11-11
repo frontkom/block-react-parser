@@ -1,0 +1,28 @@
+{
+  "name": "@frontkom/block-react-parser",
+  "version": "1.0.0",
+  "description": "Gutenberg-generated HTML to React parser.",
+  "main": "src/index.js",
+  "scripts": {},
+  "keywords": [
+    "html",
+    "react",
+    "parser",
+    "gutenberg"
+  ],
+  "author": "Roberto Ornelas <rob@frontkom.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/block-serialization-default-parser": "^4.21.0",
+    "htmlparser2": "^8.0.1",
+    "style-to-js": "^1.1.1"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
