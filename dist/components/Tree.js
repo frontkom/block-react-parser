@@ -3,12 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = Tree;
+exports.default = Tree;
 var _styleToJs = _interopRequireDefault(require("style-to-js"));
 var _Context = require("./Context");
 var _Block = _interopRequireDefault(require("./Block"));
 var _excluded = ["class", "style"];
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -24,7 +24,7 @@ function Tree(_ref) {
       var _block$innerBlocks;
       // eslint-disable-next-line react/no-array-index-key
       return (_block$innerBlocks = block.innerBlocks) === null || _block$innerBlocks === void 0 ? void 0 : _block$innerBlocks.map(function (inner, index) {
-        return /*#__PURE__*/React.createElement(_Block["default"], {
+        return /*#__PURE__*/React.createElement(_Block.default, {
           block: inner,
           key: index
         });
@@ -41,12 +41,12 @@ function Tree(_ref) {
   }
   var Component = node.name;
   var _node$attribs = node.attribs,
-    className = _node$attribs["class"],
+    className = _node$attribs.class,
     style = _node$attribs.style,
     attributes = _objectWithoutProperties(_node$attribs, _excluded);
   var attrs = _objectSpread(_objectSpread({}, attributes), {}, {
     className: className || undefined,
-    style: style && (0, _styleToJs["default"])(style)
+    style: style && (0, _styleToJs.default)(style)
   });
   return /*#__PURE__*/React.createElement(Component, attrs, (_node$children = node.children) === null || _node$children === void 0 ? void 0 : _node$children.map(function (child, index) {
     return (

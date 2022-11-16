@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _htmlparser = require("htmlparser2");
 var innerNode = function innerNode(innerBlocks, innerContent) {
   var _tree$children$;
@@ -17,4 +17,4 @@ var innerNode = function innerNode(innerBlocks, innerContent) {
   return (_tree$children$ = tree.children[0]) !== null && _tree$children$ !== void 0 ? _tree$children$ : null;
 };
 var _default = innerNode;
-exports["default"] = _default;
+exports.default = _default;

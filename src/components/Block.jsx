@@ -32,4 +32,6 @@ export default function Block({ block }) {
   if (node) {
     return <Tree node={node} block={block} />;
   }
+
+  return null;
 }
