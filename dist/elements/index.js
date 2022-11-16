@@ -30,6 +30,9 @@ var coreTags = {
       attribs: attribs,
       tag: "hr"
     });
+  },
+  meta: function meta(props) {
+    return null;
   }
   // area: ({attribs}) => <SelfClosing attribs={attribs} tag="area" />,
   // base: ({attribs}) => <SelfClosing attribs={attribs} tag="base" />,

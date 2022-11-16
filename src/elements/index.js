@@ -5,6 +5,9 @@ export const coreTags = {
   img: ({ attribs }) => <Image attribs={attribs} />,
   br: ({ attribs }) => <SelfClosing attribs={attribs} tag="br" />,
   hr: ({ attribs }) => <SelfClosing attribs={attribs} tag="hr" />,
+  meta: (props) => {
+    return null;
+  },
   // area: ({attribs}) => <SelfClosing attribs={attribs} tag="area" />,
   // base: ({attribs}) => <SelfClosing attribs={attribs} tag="base" />,
   // col: ({attribs}) => <SelfClosing attribs={attribs} tag="col" />,
