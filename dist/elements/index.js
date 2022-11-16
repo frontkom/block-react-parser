@@ -31,7 +31,8 @@ var coreTags = {
       tag: "hr"
     });
   },
-  meta: function meta(props) {
+  meta: function meta(_ref4) {
+    var attribs = _ref4.attribs;
     return null;
   }
   // area: ({attribs}) => <SelfClosing attribs={attribs} tag="area" />,

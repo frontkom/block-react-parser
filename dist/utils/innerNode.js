@@ -10,7 +10,7 @@ var innerNode = function innerNode(innerBlocks, innerContent) {
   // If no inner blocks, return the block markup.
   // If inner blocks, return the wrapping markup.
   var innerHtml = !innerBlocks.length ? innerContent[0] : "".concat(innerContent[0], "[innerBlocks]").concat(innerContent[innerContent.length - 1]);
-  var html = innerHtml ? innerHtml.trim() : '';
+  var html = innerHtml ? innerHtml.trim() : "";
   var tree = (0, _htmlparser.parseDocument)(html, {
     lowerCaseTags: true,
     recognizeSelfClosing: true

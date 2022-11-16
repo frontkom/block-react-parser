@@ -32,7 +32,7 @@ function Block(_ref) {
     return null;
   }
   // Filter out empty lines and orphaned closing tags.
-  if (innerContent.length === 1 && (innerContent[0] === '\n' || innerContent[0].substring(0, 2) === '</')) {
+  if (innerContent.length === 1 && (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")) {
     return null;
   }
   var node = (0, _innerNode.default)(innerBlocks, innerContent);

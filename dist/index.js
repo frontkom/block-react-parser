@@ -9,6 +9,12 @@ Object.defineProperty(exports, "Provider", {
     return _Context.Provider;
   }
 });
+Object.defineProperty(exports, "attribsProps", {
+  enumerable: true,
+  get: function get() {
+    return _attribsProps.default;
+  }
+});
 Object.defineProperty(exports, "customBlocks", {
   enumerable: true,
   get: function get() {
@@ -35,6 +41,7 @@ Object.defineProperty(exports, "parseBlocks", {
 });
 var _Context = require("./components/Context");
 var _elements = require("./elements");
+var _attribsProps = _interopRequireDefault(require("./utils/attribsProps"));
 var _innerNode = _interopRequireDefault(require("./utils/innerNode"));
 var _parseBlocks = _interopRequireDefault(require("./utils/parseBlocks"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

@@ -1,6 +1,6 @@
-import Tree from './Tree';
-import innerNode from '../utils/innerNode';
-import { useBlockComponent } from './Context';
+import Tree from "./Tree";
+import innerNode from "../utils/innerNode";
+import { useBlockComponent } from "./Context";
 
 /**
  * Block element.
@@ -23,7 +23,7 @@ export default function Block({ block }) {
   // Filter out empty lines and orphaned closing tags.
   if (
     innerContent.length === 1 &&
-    (innerContent[0] === '\n' || innerContent[0].substring(0, 2) === '</')
+    (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")
   ) {
     return null;
   }

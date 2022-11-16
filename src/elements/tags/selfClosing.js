@@ -1,14 +1,8 @@
-import parseStyle from 'style-to-js';
+import attribsProps from '../../utils/attribsProps';
 
 export default function SelfClosing({ attribs, tag }) {
   const Component = tag;
-  const { class: className, ...attributes } = attribs;
-  if (className) {
-    attributes.className = className;
-  }
-  if (attributes.style) {
-    attributes.style = parseStyle(attributes.style);
-  }
+  const attributes = attribsProps(attribs);
 
   return <Component {...attributes} />;
 }

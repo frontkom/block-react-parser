@@ -1,5 +1,5 @@
-import { parse } from '@wordpress/block-serialization-default-parser';
-import Block from '../components/Block';
+import { parse } from "@wordpress/block-serialization-default-parser";
+import Block from "../components/Block";
 
 /**
  * Parse Gutenberg blocks from HTML markup.
