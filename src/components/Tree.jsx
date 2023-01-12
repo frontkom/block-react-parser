@@ -1,18 +1,16 @@
-import { useTagComponent } from "./Context";
-import Block from "./Block";
-import attribsProps from "../utils/attribsProps";
+import { useTagComponent } from './Context';
+import Block from './Block';
+import attribsProps from '../utils/attribsProps';
 
 export default function Tree({ node, block }) {
   const CustomTag = useTagComponent(node.name);
 
   attribsProps(node.attribs);
 
-  if (node.type === "text") {
-    if (node.data === "[innerBlocks]") {
+  if (node.type === 'text') {
+    if (node.data === '[innerBlocks]') {
       // eslint-disable-next-line react/no-array-index-key
-      return block.innerBlocks?.map((inner, index) => (
-        <Block block={inner} key={index} />
-      ));
+      return block.innerBlocks?.map((inner, index) => <Block block={inner} key={index} />);
     }
 
     return node.data;

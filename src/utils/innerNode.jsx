@@ -1,4 +1,4 @@
-import { parseDocument } from "htmlparser2";
+import { parseDocument } from 'htmlparser2';
 
 const innerNode = (innerBlocks, innerContent) => {
   // If no inner blocks, return the block markup.
@@ -6,7 +6,7 @@ const innerNode = (innerBlocks, innerContent) => {
   const innerHtml = !innerBlocks.length
     ? innerContent[0]
     : `${innerContent[0]}[innerBlocks]${innerContent[innerContent.length - 1]}`;
-  const html = innerHtml ? innerHtml.trim() : "";
+  const html = innerHtml ? innerHtml.trim() : '';
 
   const tree = parseDocument(html, {
     lowerCaseTags: true,

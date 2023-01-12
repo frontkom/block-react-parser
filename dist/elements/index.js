@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.customTags = exports.customBlocks = exports.coreTags = exports.coreBlocks = void 0;
+var _react = _interopRequireDefault(require("react"));
 var _img = _interopRequireDefault(require("./tags/img"));
 var _selfClosing = _interopRequireDefault(require("./tags/selfClosing"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -13,20 +14,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var coreTags = {
   img: function img(_ref) {
     var attribs = _ref.attribs;
-    return /*#__PURE__*/React.createElement(_img.default, {
+    return /*#__PURE__*/_react.default.createElement(_img.default, {
       attribs: attribs
     });
   },
   br: function br(_ref2) {
     var attribs = _ref2.attribs;
-    return /*#__PURE__*/React.createElement(_selfClosing.default, {
+    return /*#__PURE__*/_react.default.createElement(_selfClosing.default, {
       attribs: attribs,
       tag: "br"
     });
   },
   hr: function hr(_ref3) {
     var attribs = _ref3.attribs;
-    return /*#__PURE__*/React.createElement(_selfClosing.default, {
+    return /*#__PURE__*/_react.default.createElement(_selfClosing.default, {
       attribs: attribs,
       tag: "hr"
     });

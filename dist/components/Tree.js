@@ -14,8 +14,8 @@ function Tree(_ref) {
     block = _ref.block;
   var CustomTag = (0, _Context.useTagComponent)(node.name);
   (0, _attribsProps.default)(node.attribs);
-  if (node.type === "text") {
-    if (node.data === "[innerBlocks]") {
+  if (node.type === 'text') {
+    if (node.data === '[innerBlocks]') {
       var _block$innerBlocks;
       // eslint-disable-next-line react/no-array-index-key
       return (_block$innerBlocks = block.innerBlocks) === null || _block$innerBlocks === void 0 ? void 0 : _block$innerBlocks.map(function (inner, index) {
