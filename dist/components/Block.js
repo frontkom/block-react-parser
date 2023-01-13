@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = Block;
+var _react = _interopRequireDefault(require("react"));
 var _Tree = _interopRequireDefault(require("./Tree"));
 var _innerNode = _interopRequireDefault(require("../utils/innerNode"));
 var _Context = require("./Context");
@@ -30,7 +31,7 @@ function Block(_ref) {
     htmlAttrs: htmlAttrs
   });
   if (CustomBlock) {
-    return /*#__PURE__*/React.createElement(CustomBlock, {
+    return /*#__PURE__*/_react.default.createElement(CustomBlock, {
       block: blockExtended
     });
   }
@@ -45,7 +46,7 @@ function Block(_ref) {
   }
   var node = (0, _innerNode.default)(innerBlocks, innerContent);
   if (node) {
-    return /*#__PURE__*/React.createElement(_Tree.default, {
+    return /*#__PURE__*/_react.default.createElement(_Tree.default, {
       node: node,
       block: blockExtended
     });
