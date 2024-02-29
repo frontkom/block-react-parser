@@ -1,0 +1,22 @@
+{
+  "name": "block-react-parser-new",
+  "version": "0.1.0",
+  "scripts": {
+    "prepare": "husky",
+    "postinstall": "husky",
+    "pre-commit": "lint-staged",
+    "commitlint": "commitlint --edit"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.0.3",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.6",
+    "@semantic-release/npm": "^11.0.2",
+    "commitlint": "^19.0.3",
+    "husky": "^9.0.11",
+    "semantic-release": "^23.0.2"
+  },
+  "prepare": "husky"
+}
