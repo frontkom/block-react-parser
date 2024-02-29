@@ -1,0 +1,53 @@
+---
+name: Build and publish package to npm registry
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: |
+          'Version to manually release'
+        required: true
+        type: string
+      dry_run:
+        description: |
+          'Dry run mode build but do not publish'
+        type: boolean
+        default: true
+  workflow_call:
+    inputs:
+      release_tag:
+        description: |
+          'Version to manually release'
+        required: true
+        type: string
+      dry_run:
+        description: |
+          'Dry run mode build but do not publish'
+        type: boolean
+        default: true
+
+permissions:
+  id-token: write  # required to use OIDC authentication
+  contents: write  # required to checkout the code from the repo and to perform release
+  packages: write  # required to publish to packages
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Package Build & Publish
+    permissions:
+      contents: read
+      packages: write # allow GITHUB_TOKEN to publish packages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - run: cd ./package && npm install
+      - run: cd ./package && npm run build
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          package: './package/package.json'
+          token: ${{ secrets.NPM_TOKEN }}
