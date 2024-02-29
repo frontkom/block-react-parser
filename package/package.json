@@ -1,6 +1,6 @@
 {
   "name": "@frontkom/block-react-parser",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Gutenberg-generated HTML to React parser.",
   "main": "dist/index.js",
   "module": "dist/index.js",
