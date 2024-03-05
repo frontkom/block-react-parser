@@ -10,7 +10,6 @@ on:
       - 'package/**'
 
 permissions:
-  id-token: write  # required to use OIDC authentication
   contents: write  # required to checkout the code from the repo and to perform release
   packages: write  # required to publish to packages
   pull-requests: write
@@ -20,17 +19,17 @@ jobs:
     name: GitHub Prerequisites Check
     runs-on: ubuntu-latest
     outputs:
-      has_gh_secrets: ${{ steps.check-gh-key-secret.outputs.declared }}
+      has_npm_secrets: ${{ steps.check-npm-key-secret.outputs.declared }}
     steps:
-      - name: Check for GitHub Secret availability
-        id: check-gh-key-secret
+      - name: Check for NPM Secret availability
+        id: check-npm-key-secret
         shell: bash
         run: |
-          if [[ ! -z  "${{ secrets.GITHUB_TOKEN }}" ]]; then
+          if [[ ! -z  "${{ secrets.NPM_TOKEN }}" ]]; then
             echo "All secrets are declared."
             echo "declared=true" >> $GITHUB_OUTPUT;
           else
-            echo "GITHUB_TOKEN secret is missing."
+            echo "NPM_TOKEN secret is missing."
             exit 1
           fi
 
@@ -39,7 +38,7 @@ jobs:
     needs: [check]
     runs-on: ubuntu-latest
     if: |
-      needs.check.outputs.has_gh_secrets
+      needs.check.outputs.has_npm_secrets
       && github.actor != 'nektos/act'
     permissions:
       contents: write  # to be able to publish a GitHub release
@@ -81,7 +80,7 @@ jobs:
     name: Add semantic release
     needs: [check, check_version_number]
     if: |
-      needs.check.outputs.has_gh_secrets
+      needs.check.outputs.has_npm_secrets
       && needs.check_version_number.outputs.new_release_published
       && github.actor != 'nektos/act'
     permissions:
@@ -133,7 +132,7 @@ jobs:
     name: GitHub Build & Publish - ${{ needs.tag_version.outputs.new_version }}
     needs: [tag_version]
     if: |
-      needs.check.outputs.has_gh_secrets
+      needs.check.outputs.has_npm_secrets
         && needs.tag_version.outputs.new_release
     uses: ./.github/workflows/build-and-publish.yaml
     with:
