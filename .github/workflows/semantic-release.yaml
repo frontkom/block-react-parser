@@ -128,15 +128,3 @@ jobs:
     outputs:
       new_release: ${{ steps.semantic.outputs.new_release_published }}
       new_version: ${{ steps.semantic.outputs.new_release_version }}
-
-  github-publish:
-    name: GitHub Build & Publish - ${{ needs.tag_version.outputs.new_version }}
-    needs: [tag_version]
-    if: |
-      needs.check.outputs.has_npm_secrets
-        && needs.tag_version.outputs.new_release
-    uses: ./.github/workflows/build-and-publish.yaml
-    with:
-      release_tag: ${{ needs.tag_version.outputs.new_version }}
-      dry_run: false
-    secrets: inherit
