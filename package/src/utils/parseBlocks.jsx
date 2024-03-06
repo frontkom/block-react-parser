@@ -1,5 +1,5 @@
-import { parse } from "@wordpress/block-serialization-default-parser";
-import Block from "../components/Block";
+import { parse } from '@wordpress/block-serialization-default-parser';
+import Block from '../components/Block';
 
 /**
  * Parse Gutenberg blocks from HTML markup.
@@ -7,7 +7,7 @@ import Block from "../components/Block";
  * @param {string} html - markup rendered by Gutenberg editor.
  * @returns {JSX.Element[]}
  */
-const parseBlocks = (html) =>
+const parseBlocks = html =>
   parse(html.trim()).map((block, key) => <Block block={block} key={key} />);
 
 export default parseBlocks;

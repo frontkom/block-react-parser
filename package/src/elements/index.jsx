@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Image from './tags/img';
 import SelfClosing from './tags/selfClosing';
 
@@ -5,9 +7,7 @@ export const coreTags = {
   img: ({ attribs }) => <Image attribs={attribs} />,
   br: ({ attribs }) => <SelfClosing attribs={attribs} tag="br" />,
   hr: ({ attribs }) => <SelfClosing attribs={attribs} tag="hr" />,
-  meta: ({ attribs }) => {
-    return null;
-  },
+  meta: ({ attribs }) => null,
   // area: ({attribs}) => <SelfClosing attribs={attribs} tag="area" />,
   // base: ({attribs}) => <SelfClosing attribs={attribs} tag="base" />,
   // col: ({attribs}) => <SelfClosing attribs={attribs} tag="col" />,

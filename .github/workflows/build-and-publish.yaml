@@ -51,3 +51,4 @@ jobs:
         with:
           package: './package/package.json'
           token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ needs.tag_version.outputs.new_version }}

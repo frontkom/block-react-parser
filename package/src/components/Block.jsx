@@ -1,6 +1,8 @@
-import Tree from "./Tree";
-import innerNode from "../utils/innerNode";
-import { useBlockComponent } from "./Context";
+import React from 'react';
+import Tree from './Tree';
+import innerNode from '../utils/innerNode';
+import { useBlockComponent } from './Context';
+import htmlAttribs from '../utils/htmlAttribs';
 
 /**
  * Block element.
@@ -12,8 +14,11 @@ export default function Block({ block }) {
   const { blockName = null, innerContent, innerBlocks } = block;
   const CustomBlock = useBlockComponent(blockName);
 
+  const htmlAttrs = htmlAttribs(innerContent[0]);
+  const blockExtended = { ...block, htmlAttrs };
+
   if (CustomBlock) {
-    return <CustomBlock block={block} />;
+    return <CustomBlock block={blockExtended} />;
   }
 
   // Filter out empty blocks.
@@ -23,14 +28,14 @@ export default function Block({ block }) {
   // Filter out empty lines and orphaned closing tags.
   if (
     innerContent.length === 1 &&
-    (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")
+    (innerContent[0] === '\n' || innerContent[0].substring(0, 2) === '</')
   ) {
     return null;
   }
 
   const node = innerNode(innerBlocks, innerContent);
   if (node) {
-    return <Tree node={node} block={block} />;
+    return <Tree node={node} block={blockExtended} />;
   }
 
   return null;
