@@ -10,6 +10,7 @@ on:
       - 'package/**'
 
 permissions:
+  id-token: write  # required to use OIDC authentication
   contents: write  # required to checkout the code from the repo and to perform release
   packages: write  # required to publish to packages
   pull-requests: write
