@@ -10,6 +10,11 @@
 * cleanup changelog ([31e66b9](https://github.com/frontkom/block-react-parser/commit/31e66b900b5994959569784ce04c85150c0f88e6))
 
 
+### Documentation
+
+* cleanup changelog ([834ab23](https://github.com/frontkom/block-react-parser/commit/834ab23d057090ccaf8f179b386f6aee684ced90))
+
+
 ### Miscellaneous Chores
 
 * **DEVOPS-506:** add $schema and contributors to package.json ([8dc9883](https://github.com/frontkom/block-react-parser/commit/8dc98834c25dfdb0321c2ae41e3c877733466d5a))
@@ -24,6 +29,7 @@
 * **DEVOPS-506:** remove dist folder from assets in @semantic-release/git ([ab67ce1](https://github.com/frontkom/block-react-parser/commit/ab67ce113828e7b4f471ef399740b4e64dd171c9))
 * **release:** 0.1.1 [skip ci] ([011f395](https://github.com/frontkom/block-react-parser/commit/011f39599ca5b94a5c3448aada36bd6d76d3f7ab))
 * **release:** 0.1.2 [skip ci] ([05be598](https://github.com/frontkom/block-react-parser/commit/05be59829e35a321b4bddbc4e0fd7789bcd36522))
+* **release:** 1.0.0 [skip ci] ([d6bea1a](https://github.com/frontkom/block-react-parser/commit/d6bea1a940a70b737c4dc9bd99d739bb8ce4fd63))
 * **release:** 1.0.0-beta.10 [skip ci] ([d69454f](https://github.com/frontkom/block-react-parser/commit/d69454f6b8c5e81ce32b6824fbc10747e8fe3476))
 * **release:** 1.0.0-beta.2 [skip ci] ([7e54ad1](https://github.com/frontkom/block-react-parser/commit/7e54ad166b46ada37a3865361ae7aa3d5bbd6164))
 * **release:** 1.0.0-beta.3 [skip ci] ([00ca556](https://github.com/frontkom/block-react-parser/commit/00ca556807d918ece4fbca575f402de3dd268d42))
