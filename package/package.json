@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json-schema.org/package.json",
   "name": "@frontkom/block-react-parser",
   "version": "1.0.0-beta.2",
   "description": "Gutenberg-generated HTML to React parser.",
@@ -12,6 +13,12 @@
     "react",
     "parser",
     "gutenberg"
+  ],
+  "contributors": [
+    {
+      "name": "Krzysztof Branecki",
+      "email": "krzysztof.branecki@frontkom.com"
+    }
   ],
   "author": "Roberto Ornelas <rob@frontkom.com>",
   "license": "ISC",
