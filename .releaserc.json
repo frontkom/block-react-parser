@@ -144,7 +144,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "mv package/changelogs/CHANGELOG.md package/changelogs/CHANGELOG-${nextRelease.version}.md;"
+        "prepareCmd": "mv package/changelogs/CHANGELOG.md package/changelogs/CHANGELOG-${nextRelease.version}.md && cd ./package && npm install && npm run build;"
       }
     ],
     [
