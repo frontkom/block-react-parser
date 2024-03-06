@@ -152,8 +152,7 @@
       {
         "assets": [
           "package/package.json",
-          "package/changelogs/**",
-          "package/dist/**"
+          "package/changelogs/**"
         ],
         "message": "chore(release): ${nextRelease.version} [skip ci]"
       }
