@@ -14,13 +14,13 @@
     "parser",
     "gutenberg"
   ],
+  "author": "Roberto Ornelas <rob@frontkom.com>",
   "contributors": [
     {
       "name": "Krzysztof Branecki",
       "email": "krzysztof.branecki@frontkom.com"
     }
   ],
-  "author": "Roberto Ornelas <rob@frontkom.com>",
   "license": "ISC",
   "dependencies": {
     "@wordpress/block-serialization-default-parser": "^4.21.0",
