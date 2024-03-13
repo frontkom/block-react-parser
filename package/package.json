@@ -1,12 +1,13 @@
 {
-  "$schema": "https://json-schema.org/package.json",
   "name": "@frontkom/block-react-parser",
-  "version": "1.1.0",
+  "version": "1.1.1-beta.2",
   "description": "Gutenberg-generated HTML to React parser.",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files"
+    "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files",
+    "format": "prettier --write \"**/*.{js,jsx,md}\"",
+    "lint": "eslint --quiet src/"
   },
   "keywords": [
     "html",
@@ -15,12 +16,6 @@
     "gutenberg"
   ],
   "author": "Roberto Ornelas <rob@frontkom.com>",
-  "contributors": [
-    {
-      "name": "Krzysztof Branecki",
-      "email": "krzysztof.branecki@frontkom.com"
-    }
-  ],
   "license": "ISC",
   "dependencies": {
     "@wordpress/block-serialization-default-parser": "^4.21.0",
@@ -33,12 +28,21 @@
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
   },
   "babel": {
     "presets": [
