@@ -86,3 +86,4 @@ yarn.lock
 .DS_Store
 lib
 *.tgz
+dist
