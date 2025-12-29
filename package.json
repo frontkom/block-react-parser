@@ -8,7 +8,7 @@
     "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files",
     "test": "node --test"
   },
-  "keywords":  [
+  "keywords": [
     "html",
     "react",
     "parser",
@@ -17,8 +17,8 @@
   "author": "Roberto Ornelas <rob@frontkom.com>",
   "license": "ISC",
   "dependencies": {
-    "@wordpress/block-serialization-default-parser": "^4.21.0",
-    "htmlparser2":  "^8.0.1",
+    "@wordpress/block-serialization-default-parser": "^5.37.0",
+    "htmlparser2": "^8.0.1",
     "react-attr-converter": "^0.3.1",
     "style-to-js": "^1.1.1"
   },
