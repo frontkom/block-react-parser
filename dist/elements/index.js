@@ -6,33 +6,38 @@ Object.defineProperty(exports, "__esModule", {
 exports.customTags = exports.customBlocks = exports.coreTags = exports.coreBlocks = void 0;
 var _img = _interopRequireDefault(require("./tags/img"));
 var _selfClosing = _interopRequireDefault(require("./tags/selfClosing"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-var coreTags = {
-  img: function img(_ref) {
-    var attribs = _ref.attribs;
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+const coreTags = exports.coreTags = {
+  img: _ref => {
+    let {
+      attribs
+    } = _ref;
     return /*#__PURE__*/React.createElement(_img.default, {
       attribs: attribs
     });
   },
-  br: function br(_ref2) {
-    var attribs = _ref2.attribs;
+  br: _ref2 => {
+    let {
+      attribs
+    } = _ref2;
     return /*#__PURE__*/React.createElement(_selfClosing.default, {
       attribs: attribs,
       tag: "br"
     });
   },
-  hr: function hr(_ref3) {
-    var attribs = _ref3.attribs;
+  hr: _ref3 => {
+    let {
+      attribs
+    } = _ref3;
     return /*#__PURE__*/React.createElement(_selfClosing.default, {
       attribs: attribs,
       tag: "hr"
     });
   },
-  meta: function meta(_ref4) {
-    var attribs = _ref4.attribs;
+  meta: _ref4 => {
+    let {
+      attribs
+    } = _ref4;
     return null;
   }
   // area: ({attribs}) => <SelfClosing attribs={attribs} tag="area" />,
@@ -47,8 +52,7 @@ var coreTags = {
   // track: ({attribs}) => <SelfClosing attribs={attribs} tag="track" />,
   // wbr: ({attribs}) => <SelfClosing attribs={attribs} tag="wbr" />,
 };
-exports.coreTags = coreTags;
-var coreBlocks = {
+const coreBlocks = exports.coreBlocks = {
   // 'core/archives': ({ block }) => doSomething(),
   // 'core/audio': ({ block }) => doSomething(),
   // 'core/avatar': ({ block }) => doSomething(),
@@ -150,10 +154,12 @@ var coreBlocks = {
  * @param {object} tags - Optional object with custom blocks definitions. Empty by default.
  * @returns {object} Object with blocks definitions
  */
-exports.coreBlocks = coreBlocks;
-var customTags = function customTags() {
-  var tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return _objectSpread(_objectSpread({}, coreTags), tags);
+const customTags = function () {
+  let tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return {
+    ...coreTags,
+    ...tags
+  };
 };
 
 /**
@@ -164,8 +170,11 @@ var customTags = function customTags() {
  * @returns {object} Object with blocks definitions
  */
 exports.customTags = customTags;
-var customBlocks = function customBlocks() {
-  var blocks = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return _objectSpread(_objectSpread({}, coreBlocks), blocks);
+const customBlocks = function () {
+  let blocks = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return {
+    ...coreBlocks,
+    ...blocks
+  };
 };
 exports.customBlocks = customBlocks;

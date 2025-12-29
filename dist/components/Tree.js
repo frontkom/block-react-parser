@@ -7,23 +7,21 @@ exports.default = Tree;
 var _Context = require("./Context");
 var _Block = _interopRequireDefault(require("./Block"));
 var _attribsProps = _interopRequireDefault(require("../utils/attribsProps"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function Tree(_ref) {
-  var _node$children;
-  var node = _ref.node,
-    block = _ref.block;
-  var CustomTag = (0, _Context.useTagComponent)(node.name);
+  let {
+    node,
+    block
+  } = _ref;
+  const CustomTag = (0, _Context.useTagComponent)(node.name);
   (0, _attribsProps.default)(node.attribs);
   if (node.type === "text") {
     if (node.data === "[innerBlocks]") {
-      var _block$innerBlocks;
       // eslint-disable-next-line react/no-array-index-key
-      return (_block$innerBlocks = block.innerBlocks) === null || _block$innerBlocks === void 0 ? void 0 : _block$innerBlocks.map(function (inner, index) {
-        return /*#__PURE__*/React.createElement(_Block.default, {
-          block: inner,
-          key: index
-        });
-      });
+      return block.innerBlocks?.map((inner, index) => /*#__PURE__*/React.createElement(_Block.default, {
+        block: inner,
+        key: index
+      }));
     }
     return node.data;
   }
@@ -34,17 +32,14 @@ function Tree(_ref) {
       attribs: node.attribs
     });
   }
-  var Component = node.name;
-  var attrs = (0, _attribsProps.default)(node.attribs);
-  return /*#__PURE__*/React.createElement(Component, attrs, (_node$children = node.children) === null || _node$children === void 0 ? void 0 : _node$children.map(function (child, index) {
-    return (
-      /*#__PURE__*/
-      // eslint-disable-next-line react/no-array-index-key
-      React.createElement(Tree, {
-        node: child,
-        block: block,
-        key: index
-      })
-    );
-  }));
+  const Component = node.name;
+  const attrs = (0, _attribsProps.default)(node.attribs);
+  return /*#__PURE__*/React.createElement(Component, attrs, node.children?.map((child, index) =>
+  /*#__PURE__*/
+  // eslint-disable-next-line react/no-array-index-key
+  React.createElement(Tree, {
+    node: child,
+    block: block,
+    key: index
+  })));
 }

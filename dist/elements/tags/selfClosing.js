@@ -5,11 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = SelfClosing;
 var _attribsProps = _interopRequireDefault(require("../../utils/attribsProps"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function SelfClosing(_ref) {
-  var attribs = _ref.attribs,
-    tag = _ref.tag;
-  var Component = tag;
-  var attributes = (0, _attribsProps.default)(attribs);
+  let {
+    attribs,
+    tag
+  } = _ref;
+  const Component = tag;
+  const attributes = (0, _attribsProps.default)(attribs);
   return /*#__PURE__*/React.createElement(Component, attributes);
 }

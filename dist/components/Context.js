@@ -9,21 +9,23 @@ exports.useComponentContext = useComponentContext;
 exports.useTagComponent = useTagComponent;
 var _react = require("react");
 var _elements = require("../elements");
-var TxContext = /*#__PURE__*/(0, _react.createContext)();
-var Provider = TxContext.Provider;
+const TxContext = /*#__PURE__*/(0, _react.createContext)();
+const {
+  Provider
+} = TxContext;
 exports.Provider = Provider;
 function useComponentContext() {
   return (0, _react.useContext)(TxContext);
 }
 function useBlockComponent(name) {
-  var _useContext = (0, _react.useContext)(TxContext),
-    _useContext$CustomBlo = _useContext.CustomBlocks,
-    CustomBlocks = _useContext$CustomBlo === void 0 ? _elements.coreBlocks : _useContext$CustomBlo;
+  const {
+    CustomBlocks = _elements.coreBlocks
+  } = (0, _react.useContext)(TxContext);
   return name && CustomBlocks[name];
 }
 function useTagComponent(tag) {
-  var _useContext2 = (0, _react.useContext)(TxContext),
-    _useContext2$CustomTa = _useContext2.CustomTags,
-    CustomTags = _useContext2$CustomTa === void 0 ? _elements.coreTags : _useContext2$CustomTa;
+  const {
+    CustomTags = _elements.coreTags
+  } = (0, _react.useContext)(TxContext);
   return tag && CustomTags[tag];
 }
