@@ -7,14 +7,14 @@ exports.default = Block;
 var _Tree = _interopRequireDefault(require("./Tree"));
 var _innerNode = _interopRequireDefault(require("../utils/innerNode"));
 var _Context = require("./Context");
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**
  * Block element.
  *
  * @param {object} componentProps - properties that includes the block object.
  * @returns {JSX.Element | null | undefined}
- */
-function Block(_ref) {
+ */function Block(_ref) {
   let {
     block
   } = _ref;
@@ -25,7 +25,7 @@ function Block(_ref) {
   } = block;
   const CustomBlock = (0, _Context.useBlockComponent)(blockName);
   if (CustomBlock) {
-    return /*#__PURE__*/React.createElement(CustomBlock, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(CustomBlock, {
       block: block
     });
   }
@@ -40,7 +40,7 @@ function Block(_ref) {
   }
   const node = (0, _innerNode.default)(innerBlocks, innerContent);
   if (node) {
-    return /*#__PURE__*/React.createElement(_Tree.default, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_Tree.default, {
       node: node,
       block: block
     });

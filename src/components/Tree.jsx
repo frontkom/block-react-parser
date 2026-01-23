@@ -8,7 +8,7 @@ export default function Tree({ node, block }) {
   attribsProps(node.attribs);
 
   if (node.type === "text") {
-    if (node.data === "[innerBlocks]") {
+    if (node.data.trim() === "[innerBlocks]") {
       // eslint-disable-next-line react/no-array-index-key
       return block.innerBlocks?.map((inner, index) => (
         <Block block={inner} key={index} />
@@ -18,9 +18,11 @@ export default function Tree({ node, block }) {
     return node.data;
   }
 
-  // Handle selfclosed elements (???)
   if (CustomTag) {
-    return <CustomTag attribs={node.attribs} />;
+    const children = node.children?.map((child, index) => (
+      <Tree node={child} block={block} key={index} />
+    ));
+    return <CustomTag attribs={node.attribs} node={children} block={block} />;
   }
 
   const Component = node.name;

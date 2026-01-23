@@ -6,13 +6,14 @@ Object.defineProperty(exports, "__esModule", {
 exports.customTags = exports.customBlocks = exports.coreTags = exports.coreBlocks = void 0;
 var _img = _interopRequireDefault(require("./tags/img"));
 var _selfClosing = _interopRequireDefault(require("./tags/selfClosing"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const coreTags = exports.coreTags = {
   img: _ref => {
     let {
       attribs
     } = _ref;
-    return /*#__PURE__*/React.createElement(_img.default, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_img.default, {
       attribs: attribs
     });
   },
@@ -20,7 +21,7 @@ const coreTags = exports.coreTags = {
     let {
       attribs
     } = _ref2;
-    return /*#__PURE__*/React.createElement(_selfClosing.default, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_selfClosing.default, {
       attribs: attribs,
       tag: "br"
     });
@@ -29,7 +30,7 @@ const coreTags = exports.coreTags = {
     let {
       attribs
     } = _ref3;
-    return /*#__PURE__*/React.createElement(_selfClosing.default, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_selfClosing.default, {
       attribs: attribs,
       tag: "hr"
     });

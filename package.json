@@ -17,7 +17,7 @@
   "author": "Roberto Ornelas <rob@frontkom.com>",
   "license": "ISC",
   "dependencies": {
-    "@wordpress/block-serialization-default-parser": "^5.37.0",
+    "@wordpress/block-serialization-default-parser": "^5.38.0",
     "htmlparser2": "^8.0.1",
     "react-attr-converter": "^0.3.1",
     "style-to-js": "^1.1.1"
@@ -37,7 +37,12 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
     ]
   },
   "browserslist": "> 0.25%, not dead"
