@@ -1,21 +1,31 @@
-import { createContext, useContext } from 'react';
-import { coreTags, coreBlocks } from '../elements/index.js';
-const TxContext = /*#__PURE__*/createContext();
-export const {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Provider = void 0;
+exports.useBlockComponent = useBlockComponent;
+exports.useComponentContext = useComponentContext;
+exports.useTagComponent = useTagComponent;
+var _react = require("react");
+var _index = require("../elements/index.js");
+const TxContext = /*#__PURE__*/(0, _react.createContext)();
+const {
   Provider
 } = TxContext;
-export function useComponentContext() {
-  return useContext(TxContext);
+exports.Provider = Provider;
+function useComponentContext() {
+  return (0, _react.useContext)(TxContext);
 }
-export function useBlockComponent(name) {
+function useBlockComponent(name) {
   const {
-    CustomBlocks = coreBlocks
-  } = useContext(TxContext);
+    CustomBlocks = _index.coreBlocks
+  } = (0, _react.useContext)(TxContext);
   return name && CustomBlocks[name];
 }
-export function useTagComponent(tag) {
+function useTagComponent(tag) {
   const {
-    CustomTags = coreTags
-  } = useContext(TxContext);
+    CustomTags = _index.coreTags
+  } = (0, _react.useContext)(TxContext);
   return tag && CustomTags[tag];
 }
