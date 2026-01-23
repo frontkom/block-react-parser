@@ -1,4 +1,5 @@
 import { parse } from "@wordpress/block-serialization-default-parser";
+// eslint-disable-next-line no-unused-vars
 import Block from "../components/Block";
 
 /**
