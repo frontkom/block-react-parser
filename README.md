@@ -14,6 +14,15 @@ A Gutenberg-generated HTML to React parser. Converts WordPress block editor (Gut
 
 ## Installation
 
+Add GitHub Packages to your `.npmrc` (requires a GitHub token with `read:packages` for private repos, or the default `GITHUB_TOKEN` in CI):
+
+```bash
+@frontkom:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Then install:
+
 ```bash
 npm install @frontkom/block-react-parser
 ```
