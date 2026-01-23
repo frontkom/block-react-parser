@@ -1,7 +1,7 @@
-import { useTagComponent } from "./Context";
+import { useTagComponent } from "./Context.js";
 // eslint-disable-next-line no-unused-vars
-import Block from "./Block";
-import attribsProps from "../utils/attribsProps";
+import Block from "./Block.js";
+import attribsProps from "../utils/attribsProps.js";
 
 export default function Tree({ node, block }) {
   const CustomTag = useTagComponent(node.name);

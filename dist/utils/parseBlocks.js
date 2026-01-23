@@ -8,7 +8,8 @@ import Block from "../components/Block.js";
  * @param {string} html - markup rendered by Gutenberg editor.
  * @returns {JSX.Element[]}
  */
-const parseBlocks = (html) =>
-  parse(html.trim()).map((block, key) => <Block block={block} key={key} />);
-
+import { jsx as _jsx } from "react/jsx-runtime";
+const parseBlocks = html => parse(html.trim()).map((block, key) => /*#__PURE__*/_jsx(Block, {
+  block: block
+}, key));
 export default parseBlocks;

@@ -2,14 +2,40 @@
 import Image from './tags/img.js';
 // eslint-disable-next-line no-unused-vars
 import SelfClosing from './tags/selfClosing.js';
-
+import { jsx as _jsx } from "react/jsx-runtime";
 export const coreTags = {
-  img: ({ attribs }) => <Image attribs={attribs} />,
-  br: ({ attribs }) => <SelfClosing attribs={attribs} tag="br" />,
-  hr: ({ attribs }) => <SelfClosing attribs={attribs} tag="hr" />,
-  meta: ({ _attribs }) => {
-    return null;
+  img: _ref => {
+    let {
+      attribs
+    } = _ref;
+    return /*#__PURE__*/_jsx(Image, {
+      attribs: attribs
+    });
   },
+  br: _ref2 => {
+    let {
+      attribs
+    } = _ref2;
+    return /*#__PURE__*/_jsx(SelfClosing, {
+      attribs: attribs,
+      tag: "br"
+    });
+  },
+  hr: _ref3 => {
+    let {
+      attribs
+    } = _ref3;
+    return /*#__PURE__*/_jsx(SelfClosing, {
+      attribs: attribs,
+      tag: "hr"
+    });
+  },
+  meta: _ref4 => {
+    let {
+      _attribs
+    } = _ref4;
+    return null;
+  }
   // area: ({attribs}) => <SelfClosing attribs={attribs} tag="area" />,
   // base: ({attribs}) => <SelfClosing attribs={attribs} tag="base" />,
   // col: ({attribs}) => <SelfClosing attribs={attribs} tag="col" />,
@@ -22,7 +48,6 @@ export const coreTags = {
   // track: ({attribs}) => <SelfClosing attribs={attribs} tag="track" />,
   // wbr: ({attribs}) => <SelfClosing attribs={attribs} tag="wbr" />,
 };
-
 export const coreBlocks = {
   // 'core/archives': ({ block }) => doSomething(),
   // 'core/audio': ({ block }) => doSomething(),
@@ -125,7 +150,13 @@ export const coreBlocks = {
  * @param {object} tags - Optional object with custom blocks definitions. Empty by default.
  * @returns {object} Object with blocks definitions
  */
-export const customTags = (tags = {}) => ({ ...coreTags, ...tags });
+export const customTags = function () {
+  let tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return {
+    ...coreTags,
+    ...tags
+  };
+};
 
 /**
  * Helper function to setup custom blocks definitions.
@@ -134,4 +165,10 @@ export const customTags = (tags = {}) => ({ ...coreTags, ...tags });
  * @param {boolean} useDefaultBlocks - Optional boolean to use core blocks defaults. True by default.
  * @returns {object} Object with blocks definitions
  */
-export const customBlocks = (blocks = {}) => ({ ...coreBlocks, ...blocks });
+export const customBlocks = function () {
+  let blocks = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return {
+    ...coreBlocks,
+    ...blocks
+  };
+};

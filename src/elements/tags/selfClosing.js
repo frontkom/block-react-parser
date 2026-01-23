@@ -1,4 +1,4 @@
-import attribsProps from '../../utils/attribsProps';
+import attribsProps from '../../utils/attribsProps.js';
 
 export default function SelfClosing({ attribs, tag }) {
   // eslint-disable-next-line no-unused-vars

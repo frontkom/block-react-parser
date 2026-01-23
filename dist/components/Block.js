@@ -9,12 +9,21 @@ import { useBlockComponent } from "./Context.js";
  * @param {object} componentProps - properties that includes the block object.
  * @returns {JSX.Element | null | undefined}
  */
-export default function Block({ block }) {
-  const { blockName = null, innerContent, innerBlocks } = block;
+import { jsx as _jsx } from "react/jsx-runtime";
+export default function Block(_ref) {
+  let {
+    block
+  } = _ref;
+  const {
+    blockName = null,
+    innerContent,
+    innerBlocks
+  } = block;
   const CustomBlock = useBlockComponent(blockName);
-
   if (CustomBlock) {
-    return <CustomBlock block={block} />;
+    return /*#__PURE__*/_jsx(CustomBlock, {
+      block: block
+    });
   }
 
   // Filter out empty blocks.
@@ -22,17 +31,15 @@ export default function Block({ block }) {
     return null;
   }
   // Filter out empty lines and orphaned closing tags.
-  if (
-    innerContent.length === 1 &&
-    (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")
-  ) {
+  if (innerContent.length === 1 && (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")) {
     return null;
   }
-
   const node = innerNode(innerBlocks, innerContent);
   if (node) {
-    return <Tree node={node} block={block} />;
+    return /*#__PURE__*/_jsx(Tree, {
+      node: node,
+      block: block
+    });
   }
-
   return null;
 }
