@@ -1,6 +1,7 @@
-import Tree from "./Tree";
-import innerNode from "../utils/innerNode";
-import { useBlockComponent } from "./Context";
+// eslint-disable-next-line no-unused-vars
+import Tree from "./Tree.js";
+import innerNode from "../utils/innerNode.js";
+import { useBlockComponent } from "./Context.js";
 
 /**
  * Block element.

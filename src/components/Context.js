@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { coreTags, coreBlocks } from '../elements';
+import { coreTags, coreBlocks } from '../elements/index.js';
 
 const TxContext = createContext();
 

@@ -2,11 +2,15 @@
   "name": "@frontkom/block-react-parser",
   "version": "1.3.0",
   "description": "Gutenberg-generated HTML to React parser.",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files",
-    "test": "node --test"
+    "test": "npm run build && node --test",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "prepublishOnly": "npm run lint && npm test"
   },
   "keywords": [
     "html",
@@ -16,8 +20,11 @@
   ],
   "author": "Roberto Ornelas <rob@frontkom.com>",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
-    "@wordpress/block-serialization-default-parser": "^5.37.0",
+    "@wordpress/block-serialization-default-parser": "^5.38.0",
     "htmlparser2": "^8.0.1",
     "react-attr-converter": "^0.3.1",
     "style-to-js": "^1.1.1"
@@ -27,6 +34,9 @@
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.34.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -36,8 +46,18 @@
   },
   "babel": {
     "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ],
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
     ]
   },
   "browserslist": "> 0.25%, not dead"

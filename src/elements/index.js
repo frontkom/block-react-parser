@@ -1,11 +1,13 @@
-import Image from './tags/img';
-import SelfClosing from './tags/selfClosing';
+// eslint-disable-next-line no-unused-vars
+import Image from './tags/img.js';
+// eslint-disable-next-line no-unused-vars
+import SelfClosing from './tags/selfClosing.js';
 
 export const coreTags = {
   img: ({ attribs }) => <Image attribs={attribs} />,
   br: ({ attribs }) => <SelfClosing attribs={attribs} tag="br" />,
   hr: ({ attribs }) => <SelfClosing attribs={attribs} tag="hr" />,
-  meta: ({ attribs }) => {
+  meta: ({ _attribs }) => {
     return null;
   },
   // area: ({attribs}) => <SelfClosing attribs={attribs} tag="area" />,

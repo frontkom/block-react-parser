@@ -1,10 +1,5 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = Image;
-function Image(_ref) {
+import { jsx as _jsx } from "react/jsx-runtime";
+export default function Image(_ref) {
   let {
     attribs
   } = _ref;
@@ -15,7 +10,7 @@ function Image(_ref) {
     height,
     width
   } = attribs;
-  return /*#__PURE__*/React.createElement("img", {
+  return /*#__PURE__*/_jsx("img", {
     alt: alt,
     className: className,
     src: src,

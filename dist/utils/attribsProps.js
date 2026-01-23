@@ -1,22 +1,15 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _reactAttrConverter = _interopRequireDefault(require("react-attr-converter"));
-var _styleToJs = _interopRequireDefault(require("style-to-js"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+import convert from 'react-attr-converter';
+import parseStyle from 'style-to-js';
 const attribsProps = attribs => {
   if (attribs === undefined) {
     return {};
   }
   const props = Object.fromEntries(Object.entries(attribs).map(attribute => {
     if (attribute[0] === 'style') {
-      return [(0, _reactAttrConverter.default)(attribute[0]), (0, _styleToJs.default)(attribute[1])];
+      return [convert(attribute[0]), parseStyle(attribute[1])];
     }
-    return [(0, _reactAttrConverter.default)(attribute[0]), attribute[1]];
+    return [convert(attribute[0]), attribute[1]];
   }));
   return props;
 };
-var _default = exports.default = attribsProps;
+export default attribsProps;

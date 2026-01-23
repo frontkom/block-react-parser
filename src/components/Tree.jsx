@@ -1,6 +1,7 @@
-import { useTagComponent } from "./Context";
-import Block from "./Block";
-import attribsProps from "../utils/attribsProps";
+import { useTagComponent } from "./Context.js";
+// eslint-disable-next-line no-unused-vars
+import Block from "./Block.js";
+import attribsProps from "../utils/attribsProps.js";
 
 export default function Tree({ node, block }) {
   const CustomTag = useTagComponent(node.name);
@@ -8,8 +9,7 @@ export default function Tree({ node, block }) {
   attribsProps(node.attribs);
 
   if (node.type === "text") {
-    if (node.data === "[innerBlocks]") {
-      // eslint-disable-next-line react/no-array-index-key
+    if (node.data.trim() === "[innerBlocks]") {
       return block.innerBlocks?.map((inner, index) => (
         <Block block={inner} key={index} />
       ));
@@ -18,18 +18,21 @@ export default function Tree({ node, block }) {
     return node.data;
   }
 
-  // Handle selfclosed elements (???)
   if (CustomTag) {
-    return <CustomTag attribs={node.attribs} />;
+    const children = node.children?.map((child, index) => (
+      <Tree node={child} block={block} key={index} />
+    ));
+    return <CustomTag attribs={node.attribs} node={children} block={block} />;
   }
 
+  // Component is used as a dynamic tag name in JSX
+  // eslint-disable-next-line no-unused-vars
   const Component = node.name;
   const attrs = attribsProps(node.attribs);
 
   return (
     <Component {...attrs}>
       {node.children?.map((child, index) => (
-        // eslint-disable-next-line react/no-array-index-key
         <Tree node={child} block={block} key={index} />
       ))}
     </Component>

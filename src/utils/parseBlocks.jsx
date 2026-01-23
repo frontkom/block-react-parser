@@ -1,5 +1,6 @@
 import { parse } from "@wordpress/block-serialization-default-parser";
-import Block from "../components/Block";
+// eslint-disable-next-line no-unused-vars
+import Block from "../components/Block.js";
 
 /**
  * Parse Gutenberg blocks from HTML markup.
