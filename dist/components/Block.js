@@ -1,16 +1,22 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Block;
+var _Tree = _interopRequireDefault(require("./Tree.js"));
+var _innerNode = _interopRequireDefault(require("../utils/innerNode.js"));
+var _Context = require("./Context.js");
+var _jsxRuntime = require("react/jsx-runtime");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 // eslint-disable-next-line no-unused-vars
-import Tree from "./Tree.js";
-import innerNode from "../utils/innerNode.js";
-import { useBlockComponent } from "./Context.js";
 
 /**
  * Block element.
  *
  * @param {object} componentProps - properties that includes the block object.
  * @returns {JSX.Element | null | undefined}
- */
-import { jsx as _jsx } from "react/jsx-runtime";
-export default function Block(_ref) {
+ */function Block(_ref) {
   let {
     block
   } = _ref;
@@ -19,9 +25,9 @@ export default function Block(_ref) {
     innerContent,
     innerBlocks
   } = block;
-  const CustomBlock = useBlockComponent(blockName);
+  const CustomBlock = (0, _Context.useBlockComponent)(blockName);
   if (CustomBlock) {
-    return /*#__PURE__*/_jsx(CustomBlock, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(CustomBlock, {
       block: block
     });
   }
@@ -34,9 +40,9 @@ export default function Block(_ref) {
   if (innerContent.length === 1 && (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")) {
     return null;
   }
-  const node = innerNode(innerBlocks, innerContent);
+  const node = (0, _innerNode.default)(innerBlocks, innerContent);
   if (node) {
-    return /*#__PURE__*/_jsx(Tree, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_Tree.default, {
       node: node,
       block: block
     });

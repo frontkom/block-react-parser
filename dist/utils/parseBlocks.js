@@ -1,15 +1,21 @@
-import { parse } from "@wordpress/block-serialization-default-parser";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _blockSerializationDefaultParser = require("@wordpress/block-serialization-default-parser");
+var _Block = _interopRequireDefault(require("../components/Block.js"));
+var _jsxRuntime = require("react/jsx-runtime");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 // eslint-disable-next-line no-unused-vars
-import Block from "../components/Block.js";
 
 /**
  * Parse Gutenberg blocks from HTML markup.
  *
  * @param {string} html - markup rendered by Gutenberg editor.
  * @returns {JSX.Element[]}
- */
-import { jsx as _jsx } from "react/jsx-runtime";
-const parseBlocks = html => parse(html.trim()).map((block, key) => /*#__PURE__*/_jsx(Block, {
+ */const parseBlocks = html => (0, _blockSerializationDefaultParser.parse)(html.trim()).map((block, key) => /*#__PURE__*/(0, _jsxRuntime.jsx)(_Block.default, {
   block: block
 }, key));
-export default parseBlocks;
+var _default = exports.default = parseBlocks;

@@ -1,14 +1,21 @@
-import attribsProps from '../../utils/attribsProps.js';
-import { jsx as _jsx } from "react/jsx-runtime";
-export default function SelfClosing(_ref) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SelfClosing;
+var _attribsProps = _interopRequireDefault(require("../../utils/attribsProps.js"));
+var _jsxRuntime = require("react/jsx-runtime");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function SelfClosing(_ref) {
   let {
     attribs,
     tag
   } = _ref;
   // eslint-disable-next-line no-unused-vars
   const Component = tag;
-  const attributes = attribsProps(attribs);
-  return /*#__PURE__*/_jsx(Component, {
+  const attributes = (0, _attribsProps.default)(attribs);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(Component, {
     ...attributes
   });
 }

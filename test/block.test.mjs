@@ -570,6 +570,34 @@ test('Block component renders media-text block', () => {
   assert.ok(rendered.includes('Text beside media.'), 'Should render text content');
 });
 
+// ============ Null Wrapper Markup Tests ============
+test('Block component renders inner blocks when wrapper markup is null', () => {
+  // A block that only contains inner blocks with no surrounding HTML markup
+  // serializes to innerContent === [null, null]. The wrapping markup must not
+  // leak the string "null" into the output.
+  const block = {
+    blockName: 'core/group',
+    attrs: {},
+    innerBlocks: [
+      {
+        blockName: 'core/paragraph',
+        attrs: {},
+        innerBlocks: [],
+        innerHTML: '<p>Inner content</p>',
+        innerContent: ['<p>Inner content</p>'],
+      },
+    ],
+    innerHTML: '',
+    innerContent: [null, null],
+  };
+
+  const rendered = renderBlock(block);
+
+  assert.ok(rendered.includes('Inner content'), 'Should render inner block content');
+  assert.ok(!rendered.includes('null'), 'Should not leak literal "null" text');
+  assert.ok(!rendered.includes('[innerBlocks]'), 'Should not leak the [innerBlocks] marker');
+});
+
 // ============ Custom Block Handler Tests ============
 test('Block component uses custom handler for paragraph', () => {
   const html = `

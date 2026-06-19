@@ -1,5 +1,11 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-export default function Image(_ref) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Image;
+var _jsxRuntime = require("react/jsx-runtime");
+function Image(_ref) {
   let {
     attribs
   } = _ref;
@@ -10,7 +16,7 @@ export default function Image(_ref) {
     height,
     width
   } = attribs;
-  return /*#__PURE__*/_jsx("img", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("img", {
     alt: alt,
     className: className,
     src: src,
