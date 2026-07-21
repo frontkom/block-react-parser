@@ -281,6 +281,39 @@ test('Block component renders ordered list', () => {
   assert.ok(rendered.includes('Step two'), 'Should render second step');
 });
 
+test('Block component renders nested list inside list item', () => {
+  // Gutenberg serializes a nested list as inner blocks of a list-item, so the
+  // list-item's innerContent is ["<li>Some item", null, "</li>"] and the
+  // [innerBlocks] marker ends up in the SAME text node as the item text.
+  const html = `
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>Some item<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>A sub item</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+`;
+
+  const rendered = parseAndRender(html);
+
+  assert.ok(!rendered.includes('[innerBlocks]'), 'Should not leak the [innerBlocks] marker');
+  assert.ok(rendered.includes('Some item'), 'Should render parent item text');
+  assert.ok(rendered.includes('A sub item'), 'Should render nested item text');
+
+  const ulCount = (rendered.match(/<ul/g) || []).length;
+  assert.equal(ulCount, 2, 'Should render nested ul inside the list item');
+
+  const nested = /<li>Some item<ul[^>]*>.*<li>A sub item<\/li>.*<\/ul><\/li>/s;
+  assert.ok(nested.test(rendered), 'Nested list should render inside the parent li');
+});
+
 // ============ Quote Block Render Tests ============
 test('Block component renders quote block', () => {
   const html = `
