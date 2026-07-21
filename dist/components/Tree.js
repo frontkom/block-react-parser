@@ -19,10 +19,15 @@ function Tree(_ref) {
   const CustomTag = (0, _Context.useTagComponent)(node.name);
   (0, _attribsProps.default)(node.attribs);
   if (node.type === "text") {
-    if (node.data.trim() === "[innerBlocks]") {
-      return block.innerBlocks?.map((inner, index) => /*#__PURE__*/(0, _jsxRuntime.jsx)(_Block.default, {
-        block: inner
-      }, index));
+    // The [innerBlocks] marker may share its text node with block content,
+    // e.g. a list item with a nested list: "<li>Some item[innerBlocks]</li>".
+    if (node.data.includes("[innerBlocks]")) {
+      const [before, after] = node.data.split("[innerBlocks]");
+      return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [before.trim() ? before : null, block.innerBlocks?.map((inner, index) => /*#__PURE__*/(0, _jsxRuntime.jsx)(_Block.default, {
+          block: inner
+        }, index)), after.trim() ? after : null]
+      });
     }
     return node.data;
   }
