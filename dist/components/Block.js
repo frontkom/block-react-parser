@@ -36,8 +36,10 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
   if (!blockName && innerContent.length === 0) {
     return null;
   }
-  // Filter out empty lines and orphaned closing tags.
-  if (innerContent.length === 1 && (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")) {
+  // Filter out empty lines and orphaned closing tags. Note innerContent
+  // entries can be null (inner-block position markers), e.g. a container
+  // serialized without wrapper markup: <!-- wp:a --><!-- wp:b /--><!-- /wp:a -->
+  if (innerContent.length === 1 && typeof innerContent[0] === "string" && (innerContent[0] === "\n" || innerContent[0].substring(0, 2) === "</")) {
     return null;
   }
   const node = (0, _innerNode.default)(innerBlocks, innerContent);

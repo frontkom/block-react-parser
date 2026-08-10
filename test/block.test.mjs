@@ -672,3 +672,30 @@ test('Block component uses custom handler for heading', () => {
   assert.ok(rendered.includes('id="custom-id"'), 'Should add custom id');
   assert.ok(rendered.includes('Custom Heading'), 'Should use custom content');
 });
+
+test('Block component renders compact container markup (innerContent is [null])', () => {
+  // Compact serialization puts no whitespace between the container's block
+  // comments and its children, so the WP parser yields innerContent: [null]
+  // for an unregistered container block with a single child.
+  const html = '<!-- wp:sikt/projects --><!-- wp:sikt/project {"uuid":"abc"} /--><!-- /wp:sikt/projects -->';
+
+  const CustomProject = () => React.createElement('div', { className: 'project' }, 'PROJECT');
+
+  const rendered = parseAndRender(html, {
+    CustomBlocks: customBlocks({ 'sikt/project': CustomProject }),
+  });
+
+  assert.ok(rendered.includes('PROJECT'), 'Should render the inner block through the generic container');
+});
+
+test('Block component still filters orphaned closing-tag fragments', () => {
+  const rendered = renderBlock({
+    blockName: null,
+    attrs: {},
+    innerBlocks: [],
+    innerHTML: '</div>',
+    innerContent: ['</div>'],
+  });
+
+  assert.equal(rendered, '', 'Orphaned closing tag should render nothing');
+});
